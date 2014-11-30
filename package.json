@@ -1,0 +1,45 @@
+{
+  "name": "ios-icon-resize",
+  "version": "1.0.0",
+  "description": "Create all required icons from one icon. Right size, right file name.",
+  "license": "MIT",
+  "repository": "excellenteasy/ios-icon-resize",
+  "bin": {
+    "ios-icon-resize": "cli.js"
+  },
+  "author": {
+    "name": "David Pfahler",
+    "email": "david@excellenteasy.com",
+    "url": "http://excellenteasy.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "icons.json"
+  ],
+  "keywords": [
+    "cli",
+    "bin",
+    "icon",
+    "ios",
+    "cordova",
+    "phonegap"
+  ],
+  "dependencies": {
+    "ios-icons": "^1.0.1",
+    "lwip": "0.0.5",
+    "minimist": "^1.1.0",
+    "q": "^1.1.2"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "rimraf": "^2.2.8",
+    "tape": "^3.0.3"
+  }
+}
