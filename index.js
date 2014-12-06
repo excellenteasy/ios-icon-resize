@@ -1,12 +1,13 @@
 'use strict'
-var icons   = require('ios-icons')
-var lwip    = require('lwip')
-var Q       = require('q')
-var path    = require('path')
+var icons = require('ios-icons')
+var lwip = require('lwip')
+var Q = require('q')
+var path = require('path')
+var colors = require('colors')
 
-function openImage(input) {
+function openImage(path) {
   var q = Q.defer()
-  lwip.open(input, function(err, image) {
+  lwip.open(path, function(err, image) {
     if (err) {
         q.reject(err)
     } else {
@@ -16,31 +17,64 @@ function openImage(input) {
   return q.promise
 }
 
-function getResizeFn(image, output) {
-  return function resize(icon) {
-    var q = Q.defer()
-    image.clone(function(err, clone) {
-      clone
-      .batch()
-      .resize(icon.width)
-      .writeFile(path.join(output, icon.name), function(err) {
-        if (err ) {
-          q.reject(err)
-        } else {
-          q.resolve(icon, output)
-        }
-      })
-    })
-    return q.promise
-  }
-}
-
-module.exports = function (input, output) {
+function clone(image) {
   var q = Q.defer()
-  output = output || process.cwd()
-  var image = openImage(input).then(function(image) {
-    Q.all(icons().map(getResizeFn(image, output)))
-    .then(q.resolve, q.reject)
+  image.clone(function(err, clone) {
+    if (err) {
+      q.reject(err)
+    } else {
+      q.resolve(clone)
+    }
   })
   return q.promise
+}
+
+function resize(icon, image) {
+  var q = Q.defer()
+  image.resize(icon.width, function(err, resized) {
+    if (err) return q.reject(err)
+    q.resolve(resized)
+  })
+  return q.promise
+}
+
+function writeFile(path, image) {
+  var q = Q.defer()
+  image.writeFile(path, function(err) {
+    if (err) return q.reject(err)
+    q.resolve(path)
+  })
+  return q.promise
+}
+
+function successMessage(icon, path) {
+  console.info(colors.green('OK'), 'Image resized to', icon.width, 'x', icon.width, 'and written to', path)
+}
+
+function errorMessage(e) {
+  var message = 'string' === typeof e ? e : (e.msg || e.message)
+  console.error(colors.red('ERROR.'), message)
+}
+
+function transformAll(icons, output, image) {
+  return Q.all(icons
+    .map(transform.bind(null, image, output))
+  )
+}
+
+function transform(image, output, icon) {
+  var out = path.join(output, icon.name)
+  return clone(image)
+    .then(resize.bind(null, icon))
+    .then(writeFile.bind(null, out))
+    .then(successMessage.bind(null, icon))
+    .catch(errorMessage)
+}
+
+module.exports = function(input, output) {
+  if (!input) {
+    errorMessage(new Error('`input` parameter is required.'))
+  }
+  output = output || process.cwd()
+  return openImage(input).then(transformAll.bind(null, icons(), output))
 }
