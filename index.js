@@ -10,9 +10,8 @@ function openImage(path) {
   lwip.open(path, function(err, image) {
     if (err) {
         q.reject(err)
-    } else {
-        q.resolve(image)
     }
+    q.resolve(image)
   })
   return q.promise
 }
@@ -22,9 +21,8 @@ function clone(image) {
   image.clone(function(err, clone) {
     if (err) {
       q.reject(err)
-    } else {
-      q.resolve(clone)
     }
+    q.resolve(clone)
   })
   return q.promise
 }
@@ -47,8 +45,8 @@ function writeFile(path, image) {
   return q.promise
 }
 
-function successMessage(icon, path) {
-  console.info(colors.green('OK'), 'Image resized to', icon.width, 'x', icon.width, 'and written to', path)
+function successMessage(icon, output, path) {
+  return console.info(colors.green('OK'), 'Image resized to', icon.width, 'x', icon.width, 'and written to', path)
 }
 
 function errorMessage(e) {
@@ -63,11 +61,11 @@ function transformAll(icons, output, image) {
 }
 
 function transform(image, output, icon) {
-  var out = path.join(output, icon.name)
+  var out = output ? path.join(output, icon.name) : false
   return clone(image)
     .then(resize.bind(null, icon))
     .then(writeFile.bind(null, out))
-    .then(successMessage.bind(null, icon))
+    .then(successMessage.bind(null, icon, output))
     .catch(errorMessage)
 }
 
@@ -75,6 +73,6 @@ module.exports = function(input, output) {
   if (!input) {
     errorMessage(new Error('`input` parameter is required.'))
   }
-  output = output || process.cwd()
+  var output = output || process.cwd()
   return openImage(input).then(transformAll.bind(null, icons(), output))
 }
