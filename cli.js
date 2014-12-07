@@ -26,7 +26,7 @@ if (argv.version) {
 }
 
 if (input) {
-  resize(argv.input || argv.i, {output: output})
+  resize(argv.input || argv.i, output)
   return
 } else {
   console.error('Please specify an input icon file witht the `-i` option.')
