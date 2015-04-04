@@ -1,46 +1,55 @@
 {
   "name": "ios-icon-resize",
-  "version": "1.0.1",
   "description": "Create all required icons from one icon. Right size, right file name.",
-  "license": "MIT",
-  "repository": "excellenteasy/ios-icon-resize",
-  "bin": {
-    "ios-icon-resize": "cli.js"
-  },
-  "author": {
-    "name": "David Pfahler",
-    "email": "david@excellenteasy.com",
-    "url": "http://excellenteasy.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "files": [
-    "index.js",
-    "cli.js",
-    "icons.json"
-  ],
-  "keywords": [
-    "cli",
-    "bin",
-    "icon",
-    "ios",
-    "cordova",
-    "phonegap"
-  ],
+  "version": "0.0.0-semantically-released",
+  "author": "David Pfahler <david@excellenteasy.com>",
+  "bin": "./bin/ios-icon-resize.js",
+  "main": "index.js",
+  "bugs": "https://github.com/excellenteasy/ios-icon-resize/issues",
+  "homepage": "https://github.com/excellenteasy/ios-icon-resize",
   "dependencies": {
+    "abbrev": "^1.0.5",
     "colors": "^1.0.3",
-    "ios-icons": "^1.0.2",
-    "lwip": "0.0.5",
+    "ios-icons": "^2.0.1",
+    "lwip": "0.0.6",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
   },
   "devDependencies": {
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
-    "tape": "^3.0.3"
-  }
+    "semantic-release": "^3.0.4",
+    "standard": "^3.3.2",
+    "tape": "^4.0.0"
+  },
+  "engines": {
+    "iojs": "^1",
+    "node": "^0.10",
+    "npm": "^2"
+  },
+  "scripts": {
+    "test": "standard && node test.js",
+    "prepublish": "semantic-release pre",
+    "postpublish": "semantic-release post"
+  },
+  "files": [
+    "index.js",
+    "bin/ios-icon-resize.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/excellenteasy/ios-icon-resize"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "bin",
+    "icon",
+    "ios",
+    "cordova",
+    "phonegap",
+    "generator",
+    "create",
+    "resize"
+  ]
 }

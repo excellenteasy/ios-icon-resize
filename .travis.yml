@@ -1,5 +1,23 @@
 language: node_js
 node_js:
-  - '0.10'
+- iojs
+sudo: false
+cache:
+  directories:
+  - node_modules
 notifications:
   email: false
+  slack:
+    secure: YIGQr0ZQkQxaDUZlBuA8BE1OqedEt/1qNZGjH4sN67qSPQiyn/hpHHv8SpbY2trX2AjfKPD2TNnCpoY0zoGmE0xAv7H1zgmRbMlCsgZDlMNOzDy3QneEeT+mzEc+bjxxAFCHCOMP5RsNni1xcVyUqvguWgecEMT6/Vq3rAo9Ugw=
+deploy:
+  provider: npm
+  email: david@excellenteasy.com
+  skip_cleanup: true
+  on:
+    branch: master
+    repo: excellenteasy/ios-icon-resize
+  api_key:
+    secure: FpPEVvW/NFRpDSN0NWFm0iWsv9iblm4TnniBzAgvUOABw4eZkxi5wS7hg11CVgjTBhAT+xeDQB8HgZBrtNThzMBYVptBXfnHgBKD6llvcARonNk81Lg/sb2+0qeQbLrOf9sdMwy96pDbnU5qCV2YIwjKlX6t3dcNehjlNZByNaA=
+env:
+  global:
+    secure: rVg9hRnTS5lVvV7/gOPdWD0MmePhTTK+2N6y+yzDrU5MmO8YLWrB5m3/XtSVyocNPJL/oHRimnHkMq+fGjqQuiPlJWXYcOg5O0cPceuddpR3WPkUqyEitAr1X5kfMPctL6aMthuRT9cfBanSfBR5OvcIM7A7P4DDX+kilmNuATc=
