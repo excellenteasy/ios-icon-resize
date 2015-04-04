@@ -10,6 +10,7 @@ The default icon file names and required sizes for iOS are retrieved from the [i
 
 The files created have the default names as you might want to use them, for example, in [`config.xml`](http://docs.phonegap.com/en/3.5.0/config_ref_images.md.html) of a PhoneGap/Cordova project.
 
+[This also exists for android](https://github.com/excellenteasy/android-icon-resize).
 
 ## Install
 
