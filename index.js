@@ -5,20 +5,20 @@ var Q = require('q')
 var path = require('path')
 var colors = require('colors')
 
-function openImage(path) {
+function openImage (path) {
   var q = Q.defer()
-  lwip.open(path, function(err, image) {
+  lwip.open(path, function (err, image) {
     if (err) {
-        q.reject(err)
+      q.reject(err)
     }
     q.resolve(image)
   })
   return q.promise
 }
 
-function clone(image) {
+function clone (image) {
   var q = Q.defer()
-  image.clone(function(err, clone) {
+  image.clone(function (err, clone) {
     if (err) {
       q.reject(err)
     }
@@ -27,40 +27,40 @@ function clone(image) {
   return q.promise
 }
 
-function resize(icon, image) {
+function resize (icon, image) {
   var q = Q.defer()
-  image.resize(icon.width, function(err, resized) {
+  image.resize(icon.width, function (err, resized) {
     if (err) return q.reject(err)
     q.resolve(resized)
   })
   return q.promise
 }
 
-function writeFile(path, image) {
+function writeFile (path, image) {
   var q = Q.defer()
-  image.writeFile(path, function(err) {
+  image.writeFile(path, function (err) {
     if (err) return q.reject(err)
     q.resolve(path)
   })
   return q.promise
 }
 
-function successMessage(icon, output, path) {
+function successMessage (icon, output, path) {
   return console.info(colors.green('OK'), 'Image resized to', icon.width, 'x', icon.width, 'and written to', path)
 }
 
-function errorMessage(e) {
-  var message = 'string' === typeof e ? e : (e.msg || e.message)
+function errorMessage (e) {
+  var message = typeof e === 'string' ? e : (e.msg || e.message)
   console.error(colors.red('ERROR.'), message)
 }
 
-function transformAll(icons, output, image) {
+function transformAll (icons, output, image) {
   return Q.all(icons
     .map(transform.bind(null, image, output))
   )
 }
 
-function transform(image, output, icon) {
+function transform (image, output, icon) {
   var out = output ? path.join(output, icon.name) : false
   return clone(image)
     .then(resize.bind(null, icon))
@@ -69,10 +69,10 @@ function transform(image, output, icon) {
     .catch(errorMessage)
 }
 
-module.exports = function(input, output) {
+module.exports = function (input, output) {
   if (!input) {
     errorMessage(new Error('`input` parameter is required.'))
   }
-  var output = output || process.cwd()
+  output = output || process.cwd()
   return openImage(input).then(transformAll.bind(null, icons(), output))
 }
