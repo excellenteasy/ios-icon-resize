@@ -36,6 +36,7 @@ deploy:
   on:
     branch: master
     repo: excellenteasy/ios-icon-resize
+    condition: "$BUILD_LEADER$BUILD_AGGREGATE_STATUS = YESothers_succeeded"
   api_key:
     secure: FpPEVvW/NFRpDSN0NWFm0iWsv9iblm4TnniBzAgvUOABw4eZkxi5wS7hg11CVgjTBhAT+xeDQB8HgZBrtNThzMBYVptBXfnHgBKD6llvcARonNk81Lg/sb2+0qeQbLrOf9sdMwy96pDbnU5qCV2YIwjKlX6t3dcNehjlNZByNaA=
 env:
