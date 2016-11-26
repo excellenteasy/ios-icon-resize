@@ -1,44 +1,17 @@
 language: node_js
-node_js:
-- iojs-v1
-- "0.12"
-- "0.10"
-sudo: false
 cache:
   directories:
-  - node_modules
+    - node_modules
 notifications:
   email: false
-  slack:
-    secure: YIGQr0ZQkQxaDUZlBuA8BE1OqedEt/1qNZGjH4sN67qSPQiyn/hpHHv8SpbY2trX2AjfKPD2TNnCpoY0zoGmE0xAv7H1zgmRbMlCsgZDlMNOzDy3QneEeT+mzEc+bjxxAFCHCOMP5RsNni1xcVyUqvguWgecEMT6/Vq3rAo9Ugw=
-before_install:
-- npm i -g npm@^2.0.0
-- npm i -g pangyp
-- npm prune
-install:
-- npm install --node-gyp=$(which pangyp)
+node_js:
+  - '7'
+  - '6'
+  - '4'
 before_script:
-- curl -Lo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
+  - npm prune
 after_success:
-- python travis_after_all.py
-- export $(cat .to_export_back)
-after_failure:
-- python travis_after_all.py
-- export $(cat .to_export_back)
-before_deploy:
-- rm -f travis_after_all.py .to_export_back
-after_script:
-- echo leader=$BUILD_LEADER status=$BUILD_AGGREGATE_STATUS
-deploy:
-  provider: npm
-  email: david@excellenteasy.com
-  skip_cleanup: true
-  on:
-    branch: master
-    repo: excellenteasy/ios-icon-resize
-    condition: "$BUILD_LEADER$BUILD_AGGREGATE_STATUS = YESothers_succeeded"
-  api_key:
-    secure: FpPEVvW/NFRpDSN0NWFm0iWsv9iblm4TnniBzAgvUOABw4eZkxi5wS7hg11CVgjTBhAT+xeDQB8HgZBrtNThzMBYVptBXfnHgBKD6llvcARonNk81Lg/sb2+0qeQbLrOf9sdMwy96pDbnU5qCV2YIwjKlX6t3dcNehjlNZByNaA=
-env:
-  global:
-    secure: rVg9hRnTS5lVvV7/gOPdWD0MmePhTTK+2N6y+yzDrU5MmO8YLWrB5m3/XtSVyocNPJL/oHRimnHkMq+fGjqQuiPlJWXYcOg5O0cPceuddpR3WPkUqyEitAr1X5kfMPctL6aMthuRT9cfBanSfBR5OvcIM7A7P4DDX+kilmNuATc=
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
