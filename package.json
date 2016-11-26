@@ -1,7 +1,7 @@
 {
   "name": "ios-icon-resize",
   "description": "Create all required icons from one icon. Right size, right file name.",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "author": "David Pfahler <david@excellenteasy.com>",
   "bin": "./bin/ios-icon-resize.js",
   "main": "index.js",
@@ -18,8 +18,8 @@
   "devDependencies": {
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
-    "semantic-release": "^3.0.4",
-    "standard": "^3.3.2",
+    "semantic-release": "^6.3.2",
+    "standard": "^3.13.2",
     "tape": "^4.0.0"
   },
   "engines": {
@@ -30,7 +30,8 @@
   "scripts": {
     "test": "standard && node test.js",
     "prepublish": "semantic-release pre",
-    "postpublish": "semantic-release post"
+    "postpublish": "semantic-release post",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "index.js",
