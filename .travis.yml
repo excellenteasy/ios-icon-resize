@@ -8,13 +8,12 @@ node_js:
   - '7'
   - '6'
   - '4'
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.8
-    - g++-4.8  
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install g++-4.8
+env:
+  - CXX=g++-4.8
 before_script:
   - npm prune
 after_success:
