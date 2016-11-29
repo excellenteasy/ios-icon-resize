@@ -17,8 +17,7 @@ env:
 before_script:
   - npm prune
 after_success:
-  - test $TRAVIS_PULL_REQUEST = false \
-    && echo "Not a pull request, running semantic-release" \
+  - test $TRAVIS_BRANCH = "master" \
     && npm run semantic-release
 branches:
   except:
