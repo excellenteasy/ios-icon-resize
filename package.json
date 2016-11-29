@@ -29,6 +29,8 @@
   },
   "scripts": {
     "test": "standard && node test.js",
+    "prepublish": "semantic-release pre",
+    "postpublish": "semantic-release post",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
