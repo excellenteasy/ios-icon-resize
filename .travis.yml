@@ -21,8 +21,3 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$
-matrix:
-  allow_failures:
-  - env: TRAVIS_BRANCH!=master 
-    after_success: npm run semantic-release
-  
