@@ -15,7 +15,9 @@ before_install:
 env:
   - CXX=g++-4.8
 after_success:
-  - npm run semantic-release
+  - test $TRAVIS_PULL_REQUEST = false \
+    && echo "Not a pull request, running semantic-release" \
+    && npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
