@@ -19,10 +19,4 @@ before_script:
 after_success:
   - npm run semantic-release
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$
-matrix:
-  allow_failures:
-  - env: TRAVIS_BRANCH!=master 
-    after_success: npm run semantic-release
-  
+    - /^v\d+\.\d+\.\d+$/
