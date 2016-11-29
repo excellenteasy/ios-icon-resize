@@ -17,7 +17,9 @@ env:
 before_script:
   - npm prune
 after_success:
-  - npm run semantic-release
+  - test $TRAVIS_PULL_REQUEST = false \
+    && echo "Not a pull request, running semantic-release" \
+    && npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
