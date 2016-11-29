@@ -15,11 +15,10 @@ before_install:
 env:
   - CXX=g++-4.8
 after_success:
-  - test $TRAVIS_BRANCH = "master" \
-    && npm run semantic-release
+  - npm run semantic-release
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+    - /^v\d+\.\d+\.\d+$
 matrix:
   allow_failures:
   - env: TRAVIS_BRANCH!=master
