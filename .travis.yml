@@ -17,8 +17,12 @@ env:
 before_script:
   - npm prune
 after_success:
-  - test $TRAVIS_BRANCH = "master" \
-    && npm run semantic-release
+  - npm run semantic-release
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+    - /^v\d+\.\d+\.\d+$
+matrix:
+  allow_failures:
+  - env: TRAVIS_BRANCH!=master 
+    after_success: npm run semantic-release
+  
