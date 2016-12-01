@@ -3,7 +3,7 @@
 var abbrev = require('abbrev')
 var minimist = require('minimist')
 
-var argv = minimist(process.argv.slice(2), abbrev('help', 'input', 'output', 'version'))
+var argv = minimist(process.argv.slice(2), {alias: abbrev('help', 'input', 'output', 'version')})
 var pkg = require('../package.json')
 var resize = require('../')
 
@@ -29,7 +29,8 @@ function cli (argv) {
     return resize(argv.input, argv.output)
   }
 
-  console.error('Please specify an input icon file witht the `-i` option.')
+  console.error('Please specify an input icon file with the `-i` option.')
+
 }
 
 cli(argv)
