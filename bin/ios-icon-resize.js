@@ -42,7 +42,6 @@ function cli (argv) {
   }
 
   console.error('Please specify an input icon file with the `-i` option.')
-
 }
 
 cli(argv)
