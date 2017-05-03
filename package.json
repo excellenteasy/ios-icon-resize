@@ -10,7 +10,7 @@
   "dependencies": {
     "abbrev": "^1.0.5",
     "colors": "^1.0.3",
-    "ios-icons": "^3.1.0",
+    "ios-icons": "^3.3.2",
     "lwip": "0.0.9",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
