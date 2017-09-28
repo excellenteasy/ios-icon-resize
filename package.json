@@ -8,7 +8,7 @@
   "bugs": "https://github.com/excellenteasy/ios-icon-resize/issues",
   "homepage": "https://github.com/excellenteasy/ios-icon-resize",
   "dependencies": {
-    "abbrev": "^1.0.5",
+    "abbrev": "^1.1.1",
     "colors": "^1.0.3",
     "ios-icons": "^3.1.0",
     "lwip": "0.0.9",
