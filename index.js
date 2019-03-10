@@ -1,7 +1,7 @@
 'use strict'
 
 var icons = require('ios-icons')
-var lwip = require('lwip')
+var lwip = require('@randy.tarampi/lwip')
 var Q = require('q')
 var path = require('path')
 var colors = require('colors')

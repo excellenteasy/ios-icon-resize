@@ -8,10 +8,10 @@
   "bugs": "https://github.com/excellenteasy/ios-icon-resize/issues",
   "homepage": "https://github.com/excellenteasy/ios-icon-resize",
   "dependencies": {
+    "@randy.tarampi/lwip": "^0.0.18",
     "abbrev": "^1.0.5",
     "colors": "^1.0.3",
     "ios-icons": "^3.1.0",
-    "lwip": "0.0.9",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
   },
@@ -23,7 +23,7 @@
     "tape": "^4.0.0"
   },
   "engines": {
-    "node": "^0.10",
+    "node": "^4",
     "npm": "^2"
   },
   "scripts": {
