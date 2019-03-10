@@ -1,42 +1,46 @@
 {
-  "name": "ios-icon-resize",
+  "name": "@randy.tarampi/ios-icon-resize",
   "description": "Create all required icons from one icon. Right size, right file name.",
   "version": "0.0.0-development",
-  "author": "David Pfahler <david@excellenteasy.com>",
+  "author": "Randy Tarampi <randy.tarampi@gmail.com>",
   "bin": "./bin/ios-icon-resize.js",
   "main": "index.js",
-  "bugs": "https://github.com/excellenteasy/ios-icon-resize/issues",
-  "homepage": "https://github.com/excellenteasy/ios-icon-resize",
+  "bugs": "https://github.com/randytarampi/ios-icon-resize/issues",
+  "homepage": "https://github.com/randytarampi/ios-icon-resize",
   "dependencies": {
+    "@randy.tarampi/ios-icons": "^3.2.0",
     "@randy.tarampi/lwip": "^0.0.18",
     "abbrev": "^1.0.5",
     "colors": "^1.0.3",
-    "ios-icons": "^3.1.0",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
-    "semantic-release": "^6.3.2",
+    "semantic-release": "^15.13.3",
     "standard": "^10.0.1",
     "tape": "^4.0.0"
   },
   "engines": {
-    "node": "^4",
-    "npm": "^2"
+    "node": "^6",
+    "npm": "^3"
   },
   "scripts": {
-    "test": "standard && node test.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "standard && node test.js"
   },
   "files": [
     "index.js",
     "bin/ios-icon-resize.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/excellenteasy/ios-icon-resize"
+    "url": "https://github.com/randytarampi/ios-icon-resize"
   },
   "release": {
     "branch": "master"

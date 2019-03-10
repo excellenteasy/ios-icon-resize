@@ -1,20 +1,25 @@
 language: node_js
-cache: npm
 notifications:
   email: false
 dist: xenial
 node_js:
-  - 8
-  - 4
-  - 6
-  - 10
-  - node
-after_success:
-  - npm run semantic-release
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$
-matrix:
-  allow_failures:
-  - env: TRAVIS_BRANCH!=master
-    after_success: npm run semantic-release
+- 8
+- 6
+- 10
+- node
+before_deploy:
+- git config --local user.name "$TRAVIS_AUTHOR_NAME"
+- git config --local user.email "$TRAVIS_AUTHOR_EMAIL"
+deploy:
+  provider: script
+  script: npx semantic-release
+  skip_cleanup: true
+  on:
+    branch: master
+    node: 8
+    os: linux
+sudo: false
+env:
+  global:
+  - secure: dHLT2+vamj0ROnKoipmQsaIXLd4yOTGdmWFbcTFDaBgYoiXWci+pXMp92P4EcMzTd2e8IqKbdconh9bsvZIe+mXU0bAQPqkw/1pky5dgVlKsI0fKIv0ZWXQw3lNz9KZBdvMQCtHfopr3a6c0t5v9SS/DNJgNoMCca4PPzL1wuoVVHGQEQKYtbKf6U2RGUFk82gDrmECrW9k1/SMA9XMkWR1kWWk5NszfOKutIbdgIss5TmGSFidC9nqs4Z68ghXfqPdkZcy2CuTXwFOJpyM5JsF4PpdtQa0bxiwXqdeywy8uR9VGqfLcFEFar3N0rZqkCZH9Q1p7dFKUglSVozFVxC6xYCuJXhpPWrAvy9tzy7wzO8Cu7ztL8MKw/CpuAagHF94BT0368Kg3CM6zpSzFJsDq1S9oZ1VxvaG1ykVigcaZKWrbiGjiOZ46wrUJx1Hbi+kssBX+1ktg8ovFUiio3ICT6mjrA8QB7JO7i6Yo28gRyF6t5RuZJzj4oE+O/u7yWfRwQave1Bc9euqZwXvmsYPCMU/K77UgH9SAKo9P9HyQAwfoPPQqlfJXplKF7sKfEzDNgpLdNqnV3COu0McelIagPPh+1Oj3CVYoeaOWd0XOoH83S//zG+j+BrPd5O+n/MvBUZ9Yima5xJmg8Grsyz+lrRBX0wHMNKKCYyt0upE=
+  - secure: CFHWde1jtkmsPu3tYWtHq1I+6eaQRQGcrsGcppnekHnDFsaTiqU/7jKU1h6z1F2zHqVgx6tOCM+i4/nMhcebzQL/7MkqRPUPImTf+GvVzPcY8oOYaz51mnn/a9F/DQMJsZnJju3OXOWTqQEtFsDwn+WOFm545Nw4HcRrnFqNXvriC3Ik4ISW4inysutUoCgZ40Haos1CT5cJ0OSf2asMClZRSV9eadzUo0xO7yst3fNZRxThwdxqA6a5KFwp7F82xfhF1lEdPgyi5g+JDxPQoRPiB/9fBH6RlTiGAoMyG8y+rfww+DnCC5HX+5chraufMdoqPfEx0Y5+3NgaYOa+tV+P+goBRajRirOKMhbKxZd6HRnsCyHb7OxjOPGYaOja6QcIzmfcfMESlKxbDJsUvlWSSNTYY2POODb8dYdrh+yyJLFI868HgZlMhKMqY0/qFwYB3n8NHp3oo3IKXnv8BF6wuXwiRwPX8pOnY1SUugj6WoMYfXXfxFozU/5hDuM/sBMdPonZAUtn3/QvcGBiGDZ+io8NxB2tQfuKvAYDtYzbnloJAzqGjdvKyPRwPDTz5BhD7dSzHKbat3OFeStuqtImh7mm0MFJIDuo+I0xRjzcIamnVIaq4NC2zGScC15E6+aPih6Q1zyvPMjhv/tD5Zk1TPB3vwF+4+DqGczwQ8o=

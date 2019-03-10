@@ -15,14 +15,14 @@ The files created have the default names as you might want to use them, for exam
 ## Install
 
 ```sh
-$ npm install --save ios-icon-resize
+$ npm install --save @randy.tarampi/ios-icon-resize
 ```
 
 
 ## Usage
 
 ```js
-var resize = require('ios-icon-resize');
+var resize = require('@randy.tarampi/ios-icon-resize');
 
 resize('path/to/icon-large.png', 'output/icons/').then(function() {
 	// icons have been created
@@ -34,7 +34,7 @@ resize('path/to/icon-large.png', 'output/icons/').then(function() {
 ## CLI
 
 ```sh
-$ npm install --global ios-icon-resize
+$ npm install --global @randy.tarampi/ios-icon-resize
 ```
 
 ```sh
