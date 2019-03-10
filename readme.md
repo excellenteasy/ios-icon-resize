@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/excellenteasy/ios-icon-resize.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-icon-resize)
 [![Dependency Status](https://david-dm.org/excellenteasy/ios-icon-resize.svg)](https://david-dm.org/excellenteasy/ios-icon-resize)
 [![devDependency Status](https://david-dm.org/excellenteasy/ios-icon-resize/dev-status.svg)](https://david-dm.org/excellenteasy/ios-icon-resize#info=devDependencies)
-[![Semantically Released](https://img.shields.io/badge/versioning-semantically%20released-brightgreen.svg)](https://github.com/boennemann/semantic-release)
+[![Semantically Released](https://img.shields.io/badge/versioning-semantically%20released-brightgreen.svg)](https://github.com/boennemann/semantic-release) [![Greenkeeper badge](https://badges.greenkeeper.io/randytarampi/ios-icon-resize.svg)](https://greenkeeper.io/)
 
 > Create all required icons from one icon. Right size, right file name.
 
