@@ -2,48 +2,47 @@
 
 var icons = require('@randy.tarampi/ios-icons')
 var lwip = require('@randy.tarampi/lwip')
-var Q = require('q')
 var path = require('path')
 var colors = require('colors')
 
 function openImage (path) {
-  var q = Q.defer()
-  lwip.open(path, function (err, image) {
-    if (err) {
-      q.reject(err)
-    }
-    q.resolve(image)
+  return new Promise(function (resolve, reject) {
+    lwip.open(path, function (err, image) {
+      if (err) {
+        reject(err)
+      }
+      resolve(image)
+    })
   })
-  return q.promise
 }
 
 function clone (image) {
-  var q = Q.defer()
-  image.clone(function (err, clone) {
-    if (err) {
-      q.reject(err)
-    }
-    q.resolve(clone)
+  return new Promise(function (resolve, reject) {
+    image.clone(function (err, clone) {
+      if (err) {
+        reject(err)
+      }
+      resolve(clone)
+    })
   })
-  return q.promise
 }
 
 function resize (icon, image) {
-  var q = Q.defer()
-  image.resize(icon.width, function (err, resized) {
-    if (err) return q.reject(err)
-    q.resolve(resized)
+  return new Promise(function (resolve, reject) {
+    image.resize(icon.width, function (err, resized) {
+      if (err) return reject(err)
+      resolve(resized)
+    })
   })
-  return q.promise
 }
 
 function writeFile (path, image) {
-  var q = Q.defer()
-  image.writeFile(path, function (err) {
-    if (err) return q.reject(err)
-    q.resolve(path)
+  return new Promise(function (resolve, reject) {
+    image.writeFile(path, function (err) {
+      if (err) return reject(err)
+      resolve(path)
+    })
   })
-  return q.promise
 }
 
 function successMessage (icon, output, path) {
@@ -56,7 +55,7 @@ function errorMessage (e) {
 }
 
 function transformAll (icons, output, image) {
-  return Q.all(icons
+  return Promise.all(icons
     .map(transform.bind(null, image, output))
   )
 }
