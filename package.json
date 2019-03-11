@@ -8,8 +8,8 @@
   "bugs": "https://github.com/randytarampi/ios-icon-resize/issues",
   "homepage": "https://github.com/randytarampi/ios-icon-resize",
   "dependencies": {
-    "@randy.tarampi/ios-icons": "^3.2.0",
-    "@randy.tarampi/lwip": "^0.0.18",
+    "@randy.tarampi/ios-icons": "^4.0.0",
+    "@randy.tarampi/lwip": "^0.0.19",
     "abbrev": "^1.0.5",
     "colors": "^1.0.3",
     "minimist": "^1.1.0",
@@ -21,7 +21,7 @@
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
     "semantic-release": "^15.13.3",
-    "standard": "^10.0.1",
+    "standard": "^12.0.1",
     "tape": "^4.0.0"
   },
   "engines": {
