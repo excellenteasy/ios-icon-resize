@@ -9,9 +9,8 @@
   "homepage": "https://github.com/randytarampi/ios-icon-resize",
   "dependencies": {
     "@randy.tarampi/ios-icons": "^4.0.0",
-    "@randy.tarampi/lwip": "^0.0.19",
+    "@randy.tarampi/generic-icon-splash-generate": "^1.0.1",
     "abbrev": "^1.1.1",
-    "colors": "^1.3.3",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
