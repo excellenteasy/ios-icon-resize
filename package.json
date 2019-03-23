@@ -8,7 +8,7 @@
   "bugs": "https://github.com/randytarampi/ios-icon-resize/issues",
   "homepage": "https://github.com/randytarampi/ios-icon-resize",
   "dependencies": {
-    "@randy.tarampi/ios-icons": "^4.0.0",
+    "@randy.tarampi/ios-icons": "^4.1.0",
     "@randy.tarampi/generic-icon-splash-generate": "^1.0.1",
     "abbrev": "^1.1.1",
     "minimist": "^1.2.0"
