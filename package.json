@@ -8,23 +8,23 @@
   "bugs": "https://github.com/randytarampi/ios-icon-resize/issues",
   "homepage": "https://github.com/randytarampi/ios-icon-resize",
   "dependencies": {
-    "@randy.tarampi/ios-icons": "^4.1.0",
-    "@randy.tarampi/generic-icon-splash-generate": "^1.0.1",
+    "@randy.tarampi/ios-icons": "^4.2.0",
+    "@randy.tarampi/generic-icon-splash-generate": "^1.4.0",
     "abbrev": "^1.1.1",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.2",
-    "@semantic-release/git": "^7.0.8",
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/git": "^7.0.18",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.3",
-    "semantic-release": "^15.13.3",
-    "standard": "^12.0.1",
-    "tape": "^4.10.1"
+    "rimraf": "^3.0.0",
+    "semantic-release": "^15.14.0",
+    "standard": "^14.3.1",
+    "tape": "^4.12.1"
   },
   "engines": {
-    "node": "^6",
-    "npm": "^3"
+    "node": ">=6",
+    "npm": ">=3"
   },
   "scripts": {
     "test": "standard && node test.js"
