@@ -24,7 +24,7 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
-    node: 8
+    node: 10
     os: linux
 sudo: false
 env:
