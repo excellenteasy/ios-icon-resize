@@ -1,6 +1,7 @@
 language: node_js
 notifications:
   email: false
+os: linux
 dist: bionic
 matrix:
   fast_finish: true
