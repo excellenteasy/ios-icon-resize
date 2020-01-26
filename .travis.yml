@@ -1,7 +1,7 @@
 language: node_js
 notifications:
   email: false
-dist: xenial
+dist: bionic
 matrix:
   fast_finish: true
   allow_failures:
