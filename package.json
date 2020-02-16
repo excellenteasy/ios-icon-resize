@@ -14,11 +14,11 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^3.0.0",
-    "semantic-release": "^16.0.1",
+    "semantic-release": "^17.0.0",
     "standard": "^14.3.1",
     "tape": "^4.12.1"
   },
