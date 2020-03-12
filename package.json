@@ -11,7 +11,7 @@
     "@randy.tarampi/ios-icons": "^4.2.0",
     "@randy.tarampi/generic-icon-splash-generate": "^1.4.0",
     "abbrev": "^1.1.1",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.0",
