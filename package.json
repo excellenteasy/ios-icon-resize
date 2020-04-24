@@ -20,7 +20,7 @@
     "rimraf": "^3.0.0",
     "semantic-release": "^17.0.0",
     "standard": "^14.3.1",
-    "tape": "^4.12.1"
+    "tape": "^5.0.0"
   },
   "engines": {
     "node": ">=6",
