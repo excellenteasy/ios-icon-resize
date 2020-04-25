@@ -8,7 +8,7 @@ var mkdirp = require('mkdirp')
 test('creates all icons in tmp directory', function (t) {
   t.plan(15)
   rimraf('tmp', function () {
-    mkdirp('tmp', function () {
+    return mkdirp('tmp').then(function () {
       resize('test/com.appbusinesspodcast.www.png', 'tmp/').then(function () {
         t.ok(fs.existsSync('tmp/icon-60@3x.png'), 'icon-60@3x.png created')
         t.ok(fs.existsSync('tmp/icon-60.png'), 'icon-60.png created')
