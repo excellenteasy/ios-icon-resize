@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/randytarampi/ios-icon-resize.svg?branch=master)](https://travis-ci.com/randytarampi/ios-icon-resize)
 [![Dependency Status](https://david-dm.org/randytarampi/ios-icon-resize.svg)](https://david-dm.org/randytarampi/ios-icon-resize)
 [![devDependency Status](https://david-dm.org/randytarampi/ios-icon-resize/dev-status.svg)](https://david-dm.org/randytarampi/ios-icon-resize#info=devDependencies)
-[![Semantically Released](https://img.shields.io/badge/versioning-semantically%20released-brightgreen.svg)](https://github.com/boennemann/semantic-release) [![Greenkeeper badge](https://badges.greenkeeper.io/randytarampi/ios-icon-resize.svg)](https://greenkeeper.io/)
+[![Semantically Released](https://img.shields.io/badge/versioning-semantically%20released-brightgreen.svg)](https://github.com/boennemann/semantic-release) 
 
 > Create all required icons from one icon. Right size, right file name.
 
