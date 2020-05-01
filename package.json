@@ -11,7 +11,8 @@
     "@randy.tarampi/generic-icon-splash-generate": "^2.0.0",
     "@randy.tarampi/ios-icons": "^4.2.1",
     "abbrev": "^1.1.1",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
@@ -27,7 +28,9 @@
     "npm": ">=3"
   },
   "scripts": {
-    "test": "standard && node test.js"
+    "test": "standard && node test.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "index.js",
@@ -54,5 +57,6 @@
     "generator",
     "create",
     "resize"
-  ]
+  ],
+  "snyk": true
 }
